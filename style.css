@@ -1,0 +1,80 @@
+:root {
+    --diameter: 300px;
+}
+
+body {
+    background: #5cba20;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.ball {
+    display: flex;
+    position: relative;
+    height: var(--diameter);
+    width: var(--diameter);
+    justify-content: center;
+    align-items: baseline;
+    border-radius: 50%;
+    border: 10px solid black;
+    background: linear-gradient(135deg, white, 80%, grey)
+}
+
+.ball-top {
+    height: calc(var(--diameter) / 2);
+    width: var(--diameter);
+    background: linear-gradient(155deg, red, 30%, maroon);
+    /* background: red; */
+    border-radius: 300px 300px 0 0;
+    border-bottom: 5px solid black;
+    /* box-shadow: inset 8px 8px 0 white; */
+
+}
+
+.ball-top-trick {
+    height: 15px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    /* 50% 0 50%;*/
+    /* border-bottom: 5px solid black; */
+    box-shadow: 5px 10px 30px white;
+    transform: translateX(30px) translateY(60px);
+    rotate: -33deg;
+}
+
+.ball-mid {
+    height: calc(var(--diameter) / 4);
+    width: calc(var(--diameter) / 4);
+    border: 2px solid grey;
+    border-radius: 50%;
+    background: lightgrey;
+    box-shadow: 4px 3px 5px rgba(0, 0, 0, .8);
+
+    display: flex;
+    /* align-items: baseline; */
+    align-self: center;
+    justify-content: center;
+
+    position: absolute;
+    z-index: 9999;
+}
+
+.ball-btn {
+    height: calc(var(--diameter) / 8);
+    width: calc(var(--diameter) / 8);
+    border: 2px solid gray;
+    border-radius: 50%;
+    background: rgb(160, 160, 160);
+    box-shadow: 4px 3px 5px rgba(0, 0, 0, .7);
+
+    align-self: center;
+}
