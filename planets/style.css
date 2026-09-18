@@ -44,13 +44,15 @@ body {
     overflow: hidden;
     box-shadow: 0 0 50px yellow;
     z-index: 1;
+
+
 }
 
 .sun::before {
     content: "";
     position: absolute;
     height: 150px;
-    width: 1000px;
+    width: 1200px;
     box-shadow: 50px 900px rgba(214, 22, 22, 0.7),
         200px 500px rgba(182, 127, 9, 0.7),
         300px 100px rgba(211, 70, 14, 0.7),
@@ -63,6 +65,8 @@ body {
         20px 650px rgba(150, 0, 0, 0.7);
     border-radius: 50%;
     top: -150px;
+
+    animation: sunrotation 45s ease-in-out infinite;
 
 }
 
@@ -137,7 +141,7 @@ body {
     position: absolute;
     box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
     z-index: 4;
-
+    animation: orbitearth 20s linear infinite;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,6 +155,7 @@ body {
     position: absolute;
     bottom: 12px;
     left: 4px;
+
 }
 
 .earth:hover::after {
@@ -169,6 +174,7 @@ body {
     position: absolute;
     box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
     z-index: 4;
+    animation: orbitmoon 1.5s linear infinite;
 }
 
 /* .moon::before {
@@ -199,6 +205,8 @@ body {
     box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
     bottom: 4px;
     z-index: 5;
+    rotate: 1.8deg;
+    animation: orbitvenus 36s linear infinite;
 }
 
 .mars:hover::before {
@@ -225,8 +233,9 @@ body {
     border: 1px solid darkred;
     position: absolute;
     box-shadow: inset -1px 0px 80px rgba(0, 0, 0, 0.6);
-    bottom: 3px;
     z-index: 6;
+    rotate: 1.3deg;
+    animation: orbitjupiter 220s linear infinite;
 
     display: flex;
     align-items: center;
@@ -239,8 +248,8 @@ body {
     width: 30px;
     background-color: darkred;
     border-radius: 50%;
-    top: 48px;
-    left: 45px;
+    top: 58px;
+    left: 25px;
 }
 
 .jupiter:hover::before {
@@ -249,14 +258,14 @@ body {
     background-color: black;
     content: "";
     position: absolute;
-    bottom: 102px;
+    bottom: 115px;
     left: 52px;
 }
 
 .jupiter:hover::after {
     content: "Jupiter";
     position: absolute;
-    bottom: 130px;
+    bottom: 145px;
     left: 52px;
 }
 
@@ -270,10 +279,12 @@ body {
     /* box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6); */
     bottom: 8px;
     z-index: 7;
-
+    rotate: 2.5deg;
     display: grid;
     align-items: center;
     justify-content: center;
+
+    animation: orbitsaturn 580s linear infinite;
 }
 
 .rings {
@@ -288,16 +299,18 @@ body {
     border: 1px solid darkgoldenrod;
     bottom: -2px;
     rotate: 17deg;
+    transform: rotateZ(180deg);
+
 }
 
 .rings::before {
     content: "";
     position: absolute;
     background: rgba(255, 165, 0);
-    width: calc((var(--earth) * 9.45) + 1px);
+    width: calc((var(--earth) * 9.45));
     height: 10px;
     border-radius: 50%;
-    left: 27.25px;
+    left: 28px;
     top: -4.75px;
     border-bottom: 1px solid darkgoldenrod;
 }
@@ -308,15 +321,15 @@ body {
     background-color: black;
     content: "";
     position: absolute;
-    bottom: 92px;
+    bottom: 97px;
     left: 45px;
 }
 
 .saturn:hover::after {
     content: "Saturn";
     position: absolute;
-    bottom: 120px;
-    left: 45px;
+    bottom: 125px;
+    left: 44px;
 }
 
 .uranus {
@@ -329,6 +342,7 @@ body {
     box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
     bottom: 6px;
     z-index: 8;
+    animation: orbituranus 1680s linear infinite;
 }
 
 .uranus:hover::before {
@@ -358,6 +372,8 @@ body {
     box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
     bottom: 20px;
     z-index: 9;
+    rotate: 1.7deg;
+    animation: orbitneptune 3200s linear infinite;
 }
 
 .neptune:hover::before {
@@ -386,8 +402,9 @@ body {
     position: absolute;
     box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
     bottom: 130px;
-
+    rotate: 17deg;
     z-index: 10;
+    animation: orbitpluto 4960s linear infinite
 }
 
 .pluto:hover::before {
@@ -436,19 +453,282 @@ body {
 @keyframes orbitvenus {
     0% {
         transform: translate(0px, 0px);
+        z-index: 2;
     }
 
     25% {
-        transform: translate(460px, 0px);
+        transform: translate(470px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
     }
 
     50% {
-        /* transform: translate(0px, 0px); */
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
         z-index: -1;
     }
 
     75% {
-        transform: translate(-460px, 0px);
+        transform: translate(-500px, 0px);
+        z-index: 2;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes orbitearth {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(470px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-530px, 0px);
+        z-index: 2;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes orbitmoon {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(7px, 0px);
+        opacity: 100;
+    }
+
+    26% {
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0;
+    }
+
+    75% {
+        transform: translate(-10px, 0px);
+        opacity: 100;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes orbitjupiter {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(650px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-750px, 0px);
+        z-index: 6;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+
+@keyframes orbitsaturn {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(680px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-765px, 0px);
+        z-index: 6;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes sunrotation {
+    0% {
+        transform: scale(1) translateX(-50px);
+    }
+
+    50% {
+        transform: scale(1.3) translateX(100px);
+    }
+
+    100% {
+        transform: scale(1) translateX(-50px)
+    }
+}
+
+@keyframes orbituranus {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(740px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-800px, 0px);
+        z-index: 6;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes orbitneptune {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(800px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-850px, 0px);
+        z-index: 6;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes orbitpluto {
+    0% {
+        transform: translate(0px, 0px);
+        z-index: 2;
+    }
+
+    25% {
+        transform: translate(1050px, 0px);
+        z-index: 1;
+    }
+
+    26% {
+        z-index: 0;
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: 0;
+    }
+
+    74% {
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-1100px, 0px);
+        z-index: 6;
     }
 
     100% {
