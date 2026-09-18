@@ -1,0 +1,457 @@
+:root {
+    --earth: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #070707;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+}
+
+/*  Sun: roughly 100 earths
+    Mercury: 1/3 earths .25 yrs
+    Venus: ~.9 earths .62yrs
+    moon: 1/4 earth 1yr
+    Mars: 1/2 earths  1.88yrs
+    Jupiter: 11x earth 11.86yrs
+    Saturn: 9x earth 29.46yrs
+    Uranus:4x earth 84.01 yrs
+    Neptune: 3.9 earth 164.8 yrs
+    Pluto: 1/5 earth  248 yrs 
+    */
+.sun {
+    background-color: yellow;
+    height: 900px;
+    width: 900px;
+    border-radius: 50%;
+    /* border: 2px solid orange; */
+    position: absolute;
+    transform: translate(-50%);
+    overflow: hidden;
+    box-shadow: 0 0 50px yellow;
+    z-index: 1;
+}
+
+.sun::before {
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 1000px;
+    box-shadow: 50px 900px rgba(214, 22, 22, 0.7),
+        200px 500px rgba(182, 127, 9, 0.7),
+        300px 100px rgba(211, 70, 14, 0.7),
+        -200px 420px rgb(139, 27, 27, 0.7),
+        -100px 220px rgba(211, 79, 79, 0.7),
+        400px 300px rgb(139, 27, 27, 0.7),
+        -400px 300px rgb(139, 27, 27, 0.7),
+        -400px 550px rgba(240, 145, 2, 0.7),
+        0 760px rgba(165, 143, 17, 0.7),
+        20px 650px rgba(150, 0, 0, 0.7);
+    border-radius: 50%;
+    top: -150px;
+
+}
+
+
+.mercury {
+    background-color: slategray;
+    width: calc(var(--earth) * 0.38);
+    height: calc(var(--earth) * 0.38);
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
+    bottom: 10px;
+    z-index: 2;
+    rotate: 7deg;
+    animation: orbitmerc 5s linear infinite;
+}
+
+.mercury:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 1px
+}
+
+.mercury:hover::after {
+    content: "Mercury";
+    position: absolute;
+    bottom: 32px;
+    /* ::before height + (.5 * (width + border)) */
+}
+
+.venus {
+    background-color: #7a8121;
+    width: calc(var(--earth) * 0.95);
+    height: calc(var(--earth) * 0.95);
+    border-radius: 50%;
+    border: 1px solid #464912;
+    position: absolute;
+    box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    rotate: 3deg;
+    animation: orbitvenus 12s linear infinite;
+}
+
+.venus:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 11px;
+    left: 4px;
+}
+
+.venus:hover::after {
+    content: "Venus";
+    position: absolute;
+    bottom: 39px;
+    left: 3px;
+}
+
+.earth {
+    background-color: blue;
+    width: var(--earth);
+    height: var(--earth);
+    border-radius: 50%;
+    border: 1px solid green;
+    position: absolute;
+    box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.earth:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 4px;
+}
+
+.earth:hover::after {
+    content: "Earth";
+    position: absolute;
+    bottom: 40px;
+    left: 3px;
+}
+
+.moon {
+    background-color: lightblue;
+    width: calc(var(--earth) / 5);
+    height: calc(var(--earth) / 5);
+    border-radius: 50%;
+    border: .5px solid white;
+    position: absolute;
+    box-shadow: inset -1px 0px 1px rgba(0, 0, 0, 0.6);
+    z-index: 4;
+}
+
+/* .moon::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: relative;
+    bottom: 12px;
+    left: 4px;
+} */
+
+/* 
+.moon::after {
+    content: "moon";
+    position: absolute;
+    bottom: 40px;
+    left: 3px;
+} */
+
+.mars {
+    background-color: maroon;
+    width: calc(var(--earth) / 2);
+    height: calc(var(--earth) / 2);
+    border-radius: 50%;
+    border: 1px solid darkred;
+    position: absolute;
+    box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
+    bottom: 4px;
+    z-index: 5;
+}
+
+.mars:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    left: 2px;
+}
+
+.mars:hover::after {
+    content: "Mars";
+    position: absolute;
+    bottom: 35px;
+}
+
+.jupiter {
+    background-color: orangered;
+    width: calc(var(--earth) * 11.2);
+    height: calc(var(--earth) * 11.2);
+    border-radius: 50%;
+    border: 1px solid darkred;
+    position: absolute;
+    box-shadow: inset -1px 0px 80px rgba(0, 0, 0, 0.6);
+    bottom: 3px;
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reddot {
+    position: absolute;
+    height: 24px;
+    width: 30px;
+    background-color: darkred;
+    border-radius: 50%;
+    top: 48px;
+    left: 45px;
+}
+
+.jupiter:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 102px;
+    left: 52px;
+}
+
+.jupiter:hover::after {
+    content: "Jupiter";
+    position: absolute;
+    bottom: 130px;
+    left: 52px;
+}
+
+.saturn {
+    background-color: orange;
+    width: calc(var(--earth) * 9.45);
+    height: calc(var(--earth) * 9.45);
+    border-radius: 50%;
+    border: 1px solid darkgoldenrod;
+    position: absolute;
+    /* box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6); */
+    bottom: 8px;
+    z-index: 7;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.rings {
+    width: calc(var(--earth) * 15);
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(#333333,
+            #333333 50%,
+            #eeeeee 75%,
+            #333333 75%);
+    position: relative;
+    border: 1px solid darkgoldenrod;
+    bottom: -2px;
+    rotate: 17deg;
+}
+
+.rings::before {
+    content: "";
+    position: absolute;
+    background: rgba(255, 165, 0);
+    width: calc((var(--earth) * 9.45) + 1px);
+    height: 10px;
+    border-radius: 50%;
+    left: 27.25px;
+    top: -4.75px;
+    border-bottom: 1px solid darkgoldenrod;
+}
+
+.saturn:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 92px;
+    left: 45px;
+}
+
+.saturn:hover::after {
+    content: "Saturn";
+    position: absolute;
+    bottom: 120px;
+    left: 45px;
+}
+
+.uranus {
+    background-color: #067158;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #049f7b;
+    position: absolute;
+    box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
+    bottom: 6px;
+    z-index: 8;
+}
+
+.uranus:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 42px;
+    left: 20px;
+}
+
+.uranus:hover::after {
+    content: "Uranus";
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+}
+
+.neptune {
+    background-color: #0c2198;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #08427c;
+    position: absolute;
+    box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
+    bottom: 20px;
+    z-index: 9;
+}
+
+.neptune:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: 19px;
+}
+
+.neptune:hover::after {
+    content: "Neptune";
+    position: absolute;
+    bottom: 68px;
+    left: 18px;
+}
+
+.pluto {
+    background-color: #0c2198;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: 1px solid #08427c;
+    position: absolute;
+    box-shadow: inset -1px 0px 9px rgba(0, 0, 0, 0.6);
+    bottom: 130px;
+
+    z-index: 10;
+}
+
+.pluto:hover::before {
+    height: 30px;
+    width: 1px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0.5px;
+}
+
+.pluto:hover::after {
+    content: "Pluto";
+    position: absolute;
+    bottom: 32px;
+    left: -1px;
+}
+
+/* A bunch of annoying animations */
+
+@keyframes orbitmerc {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(455px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-455px, 0px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+
+}
+
+@keyframes orbitvenus {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(460px, 0px);
+    }
+
+    50% {
+        /* transform: translate(0px, 0px); */
+        z-index: -1;
+    }
+
+    75% {
+        transform: translate(-460px, 0px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
