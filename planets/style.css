@@ -44,8 +44,6 @@ body {
     overflow: hidden;
     box-shadow: 0 0 50px yellow;
     z-index: 1;
-
-
 }
 
 .sun::before {
@@ -58,13 +56,13 @@ body {
         300px 100px rgba(211, 70, 14, 0.7),
         -200px 420px rgb(139, 27, 27, 0.7),
         -100px 220px rgba(211, 79, 79, 0.7),
-        400px 300px rgb(139, 27, 27, 0.7),
+        400px 300px rgba(231, 102, 43, 0.7),
         -400px 300px rgb(139, 27, 27, 0.7),
         -400px 550px rgba(240, 145, 2, 0.7),
-        0 760px rgba(165, 143, 17, 0.7),
+        -50px 760px rgba(165, 143, 17, 0.7),
         20px 650px rgba(150, 0, 0, 0.7);
     border-radius: 50%;
-    top: -150px;
+    top: -175px;
 
     animation: sunrotation 45s ease-in-out infinite;
 
@@ -284,7 +282,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    animation: orbitsaturn 580s linear infinite;
+    animation: orbitsaturn 58s linear infinite;
 }
 
 .rings {
@@ -299,7 +297,7 @@ body {
     border: 1px solid darkgoldenrod;
     bottom: -2px;
     rotate: 17deg;
-    transform: rotateZ(180deg);
+    animation: rings 58s linear infinite;
 
 }
 
@@ -422,6 +420,18 @@ body {
     position: absolute;
     bottom: 32px;
     left: -1px;
+}
+
+footer {
+    position: absolute;
+    color: white;
+    background-color: #070707;
+    top: 0;
+    left: 0;
+    margin-left: 5px;
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
 }
 
 /* A bunch of annoying animations */
@@ -620,6 +630,28 @@ body {
     }
 }
 
+@keyframes rings {
+    0% {
+        transform: rotate(17deg)
+    }
+
+    12% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(-17deg)
+    }
+
+    88% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(17deg)
+    }
+}
+
 @keyframes sunrotation {
     0% {
         transform: scale(1) translateX(-50px);
@@ -637,7 +669,7 @@ body {
 @keyframes orbituranus {
     0% {
         transform: translate(0px, 0px);
-        z-index: 2;
+        z-index: 7;
     }
 
     25% {
@@ -660,7 +692,7 @@ body {
 
     75% {
         transform: translate(-800px, 0px);
-        z-index: 6;
+        z-index: 7;
     }
 
     100% {
@@ -671,12 +703,12 @@ body {
 @keyframes orbitneptune {
     0% {
         transform: translate(0px, 0px);
-        z-index: 2;
+        z-index: 8;
     }
 
     25% {
         transform: translate(800px, 0px);
-        z-index: 1;
+        z-index: 8;
     }
 
     26% {
@@ -694,7 +726,7 @@ body {
 
     75% {
         transform: translate(-850px, 0px);
-        z-index: 6;
+        z-index: 8;
     }
 
     100% {
@@ -728,7 +760,7 @@ body {
 
     75% {
         transform: translate(-1100px, 0px);
-        z-index: 6;
+        z-index: 10;
     }
 
     100% {
